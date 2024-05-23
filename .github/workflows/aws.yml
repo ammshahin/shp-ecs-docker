@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1
-  ECR_REPOSITORY: 858483704821.dkr.ecr.ap-northeast-1.amazonaws.com/laa-dev-app
+  ECR_REPOSITORY: laa-dev-app
   ECS_SERVICE: laa-checkout-app
   ECS_CLUSTER: shopifyApp
   ECS_TASK_DEFINITION: .github/workflows/test-tdf.json
