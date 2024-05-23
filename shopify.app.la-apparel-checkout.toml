@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "37de621d0ce97fa84a9b8200c237fd7d"
+name = "LA Apparel Checkout"
+handle = "la-apparel-checkout"
+application_url = "https://laa-checkout-app-030a8cd32857.herokuapp.com/"
+embedded = true
+
+[build]
+include_config_on_deploy = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "read_customers,read_discounts,read_orders,read_products,read_shipping,unauthenticated_read_checkouts,unauthenticated_read_content,unauthenticated_read_customer_tags,unauthenticated_read_customers,unauthenticated_read_metaobjects,unauthenticated_read_product_inventory,unauthenticated_read_product_listings,unauthenticated_read_product_pickup_locations,unauthenticated_read_product_tags,unauthenticated_read_selling_plans,unauthenticated_write_checkouts,unauthenticated_write_customers,write_customers,write_discounts,write_products,read_draft_orders,write_draft_orders,read_payment_terms"
+
+[auth]
+redirect_urls = [
+  "https://laa-checkout-app-030a8cd32857.herokuapp.com/auth/callback",
+  "https://laa-checkout-app-030a8cd32857.herokuapp.com/auth/shopify/callback",
+  "https://laa-checkout-app-030a8cd32857.herokuapp.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-04"
+
+[app_proxy]
+url = "https://laa-checkout-app-030a8cd32857.herokuapp.com/a/checkout"
+subpath = "checkout"
+prefix = "a"
+
+[pos]
+embedded = false

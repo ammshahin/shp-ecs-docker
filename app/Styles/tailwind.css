@@ -1,0 +1,501 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The base layer is for things like reset rules or default styles applied to plain HTML elements. */
+@layer base {
+  @font-face {
+    font-family: 'EurostileNextW01-ExtBold';
+    src:
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-ExtBold.woff2')
+        format('woff2'),
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-ExtBold.woff')
+        format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EurostileNextW01-Extended';
+    src:
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-Extended.woff2')
+        format('woff2'),
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-Extended.woff')
+        format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'EurostileNextW01-ExSemiBold';
+    src:
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-ExSemiBold.woff2')
+        format('woff2'),
+      url('./Fonts/Eurostile Next W01/EurostileNextW01-ExSemiBold.woff')
+        format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'UniversLTW01-55Roman';
+    src:
+      url('./Fonts/Univers LT W01/UniversLTW01-55Roman.woff2') format('woff2'),
+      url('./Fonts/Univers LT W01/UniversLTW01-55Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'UniversLTW01-45Light';
+    src:
+      url('./Fonts/Univers LT W01/UniversLTW01-45Light.woff2') format('woff2'),
+      url('./Fonts/Univers LT W01/UniversLTW01-45Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'UniversLTW01-45LightOblique';
+    src:
+      url('./Fonts/Univers LT W01/UniversLTW01-45LightOblique.woff2')
+        format('woff2'),
+      url('./Fonts/Univers LT W01/UniversLTW01-45LightOblique.woff')
+        format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'UniversLTW01-85ExtraBlack';
+    src:
+      url('./Fonts/Univers LT W01/UniversLTW01-85ExtraBlack.woff2')
+        format('woff2'),
+      url('./Fonts/Univers LT W01/UniversLTW01-85ExtraBlack.woff')
+        format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'UniversLTW01-65Bold';
+    src:
+      url('./Fonts/Univers LT W01/UniversLTW01-65Bold.woff2') format('woff2'),
+      url('./Fonts/Univers LT W01/UniversLTW01-65Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+:root {
+  --page-width: 1920px;
+  --section-width: 1172px;
+  --page-padding: 1.25rem;
+  --page-padding-mobile: 0.9375rem;
+  --section-padding: 5.953125rem;
+  --section-padding-mobile: 0.8rem;
+  --header-height: 64px;
+  --color-dark: #000;
+  --color-light: #fff;
+  /* fonts */
+  --primary-font-regular: 'EurostileNextW01-Extended', sans-serif;
+  --primary-font-semibold: 'EurostileNextW01-ExSemiBold', sans-serif;
+  --primary-font-bold: 'EurostileNextW01-ExtBold', sans-serif;
+
+  --secondary-font-light: 'UniversLTW01-45Light', sans-serif;
+  --secondary-font-light-oblique: 'UniversLTW01-45LightOblique', sans-serif;
+  --secondary-font-regular: 'UniversLTW01-55Roman', sans-serif;
+  --secondary-font-bold: 'UniversLTW01-65Bold', sans-serif;
+  --secondary-font-extra-black: 'UniversLTW01-85ExtraBlack', sans-serif;
+}
+[data-theme='light'] {
+  --primary-color: #000;
+  --link-color: #000;
+  --hover-color: #585858;
+  --secondary-color: #536390;
+  --font-color: #000;
+  --btn-color: #000;
+  --bg-color: #fff;
+  --heading-color: #000;
+  --header-color: #fbfbfb;
+  --modal-bg: #fff;
+  --drk-color: #000;
+  --border-color: #000;
+  --secondary-border-color: #aaa;
+}
+[data-theme='dark'] {
+  --primary-color: #ababab;
+  --link-color: #ababab;
+  --hover-color: #585858;
+  --secondary-color: #fff;
+  --btn-color: #2d2d2d;
+  --font-color: #ababab;
+  --bg-color: #241f21;
+  --heading-color: #fff;
+  --header-color: #2b2628;
+  --modal-bg: #252525;
+  --drk-color: #000;
+  --border-color: #ababab;
+  --secondary-border-color: #ababab;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--secondary-font-regular);
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: var(--primary-font-bold);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--primary-font-bold);
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: var(--primary-font-bold);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-family: var(--primary-font-bold);
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+a,
+Link {
+  color: #000;
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+hr {
+  border-bottom: none;
+  border-top: 1px solid #000;
+  margin: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: var(--secondary-font-regular);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* body>main {
+  margin: 0 1rem 1rem 1rem;
+} */
+
+section {
+  padding: 1rem 0;
+
+  @media (min-width: 768px) {
+    padding: 2rem 0;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+}
+
+form {
+  /* max-width: 100%; */
+  @media (min-width: 768px) {
+    /* max-width: 400px; */
+  }
+}
+
+/* input {
+  border-radius: 4px;
+  border: 1px solid #000;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+} */
+
+legend {
+  font-family: var(--primary-font-bold);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+dl {
+  margin: 0.5rem 0;
+}
+
+code {
+  background: #ddd;
+  border-radius: 4px;
+  font-family: monospace;
+  padding: 0.25rem;
+}
+
+.page-width {
+  overflow-x: hidden;
+  max-width: var(--page-width);
+  width: 100%;
+  padding: var(--page-padding-mobile);
+}
+
+.section-width {
+  max-width: var(--section-width);
+  width: 100%;
+  padding: calc(var(--section-padding-mobile) - var(--page-padding-mobile));
+}
+
+@media screen and (min-width: 1024px) {
+  .page-width {
+    padding: var(--page-padding);
+  }
+  .section-width {
+    padding: calc(var(--section-padding) - var(--page-padding));
+  }
+}
+
+@media screen and (min-width: 1921px) {
+  .page-width {
+    margin: 0 auto;
+  }
+  .section-width {
+    margin: 0 auto;
+  }
+}
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+}
+
+.custom-checkbox:checked {
+  background-size: 80% 80%;
+}
+
+/* The components layer is for class-based styles that you want to be able to override with utilities. */
+@layer components {
+}
+/*The utilities layer is for small, single-purpose classes that should always take precedence over any other styles. */
+@layer utilities {
+  /* For Webkit-based browsers (Chrome, Safari and Opera) */
+  .hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* For IE, Edge and Firefox */
+  .hidden-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .break-container {
+    box-shadow: 0 0 0 100vmax #f5f5f5;
+    clip-path: inset(0 -100vmax);
+  }
+
+  .break-container-white {
+    box-shadow: 0 0 0 100vmax #fff;
+    clip-path: inset(0 -100vmax);
+  }
+
+  .break-container-none {
+    box-shadow: none;
+    clip-path: unset;
+  }
+
+  .position-unset {
+    position: unset !important;
+  }
+  .text-shadow {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
+
+/* add css below if you don't want sure about the above directives */
+.scroll-locked {
+  @apply overflow-hidden !important;
+}
+.scroll-locked-IOS {
+  @apply overflow-hidden fixed top-0 left-0 bottom-1/2 right-0 !important;
+}
+[type='checkbox']:focus,
+[type='radio']:focus {
+  @apply border-none outline-none shadow-none !important;
+}
+[type='search']:focus,
+[type='checkbox']:focus,
+[type='radio']:focus {
+  outline: 2px solid transparent !important;
+  outline-offset: 2px;
+  /* --tw-ring-inset: var(--tw-empty); */
+  --tw-ring-offset-width: 2px;
+  --tw-ring-offset-color: transparent;
+  --tw-ring-color: transparent;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0
+    var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0
+    calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+  box-shadow:
+    0 0 0 2px transparent,
+    0 0 0 4px transparent,
+    var(--tw-shadow) !important;
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+    var(--tw-shadow) !important;
+}
+
+.menu-trigger {
+  left: -1px;
+  position: relative;
+  display: block;
+  text-indent: -999em;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  margin-left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: transparent;
+}
+.menu-trigger span,
+.menu-trigger span:after,
+.menu-trigger span:before {
+  position: absolute;
+  display: inline-block;
+  height: 2px;
+  width: 22px;
+  background: #000;
+}
+.menu-trigger span:after,
+.menu-trigger span:before {
+  content: '';
+  right: 0;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform-origin: 0 50%;
+  transition: transform 0.2s;
+}
+.menu-trigger span:before {
+  top: -6px;
+}
+.menu-trigger span:after {
+  top: 6px;
+}
+.menu-trigger.nav-is-visible span {
+  background: #fff0;
+}
+.menu-trigger.nav-is-visible span:after,
+.menu-trigger.nav-is-visible span:before {
+  background: #000;
+}
+.menu-trigger.nav-is-visible span:before {
+  transform: translate(3px) translateY(-2px) rotate(45deg);
+}
+.menu-trigger.nav-is-visible span:after {
+  transform: translate(3px) translateY(2px) rotate(-45deg);
+}
+/* The modal (background) */
+.modal {
+  position: fixed;
+  /* Stay in place */
+  z-index: 99;
+  /* Sit on top */
+  left: 0;
+  top: 40px;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  /* Full width */
+  height: calc(100dvh - 40px);
+  /* Full height */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  /* margin: auto;
+    padding: 20px; */
+  width: 100%;
+  height: 100%;
+  /* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: transparent;
+}
