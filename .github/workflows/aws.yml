@@ -9,7 +9,7 @@ env:
   ECR_REPOSITORY: laa-dev-app
   ECS_SERVICE: laa-checkout-app
   ECS_CLUSTER: shopifyApp
-  ECS_TASK_DEFINITION: .github/workflows/test-tdf.json
+  ECS_TASK_DEFINITION: .github/workflows/test-tdf-revision2.json
 
   CONTAINER_NAME: laa-dev-app
 
