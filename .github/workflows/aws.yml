@@ -41,14 +41,24 @@ jobs:
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
       run: |
-        # Build a docker container and
-        # push it to ECR so that it can
-        # be deployed to ECS.
+        # Build the Docker image
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        # Push the Docker image to ECR
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+    - name: Create .env file
+      run: |
+        echo SHOPIFY_API_KEY=${{ secrets.SHOPIFY_API_KEY }} >> .env
+        echo SHOPIFY_API_SECRET=${{ secrets.SHOPIFY_API_SECRET }} >> .env
+        echo SCOPES=${{ secrets.SCOPES }} >> .env
+        echo AUTHORIZE_NET_API_URL=${{ secrets.AUTHORIZE_NET_API_URL }} >> .env
+        echo AUTHORIZE_NET_API_ID=${{ secrets.AUTHORIZE_NET_API_ID }} >> .env
+        echo AUTHORIZE_NET_API_KEY=${{ secrets.AUTHORIZE_NET_API_KEY }} >> .env
+        echo STOREFRONT_ACCESS_TOKEN=${{ secrets.STOREFRONT_ACCESS_TOKEN }} >> .env
+        echo MANDRILL_API_KEY=${{ secrets.MANDRILL_API_KEY }} >> .env
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
@@ -64,4 +74,4 @@ jobs:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: ${{ env.ECS_SERVICE }}
         cluster: ${{ env.ECS_CLUSTER }}
-        wait-for-service-stability: false
+        wait-for-service-stability: true
